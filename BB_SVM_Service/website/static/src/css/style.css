@@ -1,0 +1,51 @@
+@import url(fontiran.css);
+
+:root {
+    --dark_blue: #57Ba98;
+    --light_green: #2E9CCA;
+    --border_green: #65CCB8;
+    --black_ccc: #182628;
+    --sormeiei: #2d4159;
+    --my_light_gray: lightgray;
+}
+
+
+.ccc_login_button {
+    width: 100%;
+    -webkit-border-radius: 35px !important;
+    -moz-border-radius: 35px !important;
+    border-radius: 35px !important;
+    height: 50px;
+    margin-top: 20px;
+    background-color: var(--light_green) !important;
+    border-color: var(--light_green) !important;
+}
+
+.preloader:before {
+    position: absolute;
+    content: '';
+    display: block;
+    top: 40%;
+    width: 10%;
+    height: 35%;
+    background: url(/static/src/img/cloud.gif);
+    background-size: 3.5em 3.5em;
+    background-repeat: no-repeat;
+    left: 48%;
+}
+
+.my_badge {
+    padding: 0.7em 1em 0.5em 1em;
+    font-size: .8em;
+}
+
+.bigger_badge {
+    padding: 0.7em 1em 0.5em 1em;
+    font-size: .85em;
+    font-weight: 400;
+}
+
+.my_nav {
+    background: #57bcb9;
+    height: 0.7em;
+}
