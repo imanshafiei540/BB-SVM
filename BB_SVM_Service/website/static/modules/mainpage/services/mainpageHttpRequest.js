@@ -59,7 +59,7 @@ angular.module('mainpage')
             'perform_process': function (data) {
                 return this.request({
                     'method': "POST",
-                    'url': "/api/perform_process",
+                    'url': "/api/perform_process/",
                     'data': data
                 });
             }

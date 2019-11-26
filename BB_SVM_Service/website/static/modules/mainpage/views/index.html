@@ -1,48 +1,48 @@
 <nav class="my_nav"></nav>
-<div class="container">
-    <div class="row">
+<div ng-controller="mainCtrl" class="container">
+    <div ng-show="want_to_enter_text || is_loading" class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6 col-sm-12">
             <form class="mt-5">
                 <h1 class="text-center">‌‌‌BB-SVM System</h1>
                 <div class="form-group mt-4">
-                    <textarea rows="12" class="form-control"></textarea>
+                    <textarea ng-model="new_ocean_data.personal_text" rows="12" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-info ccc_login_button">Search My Personality</button>
+                    <button ng-click="predict()" type="button" class="btn btn-info ccc_login_button">Search My Personality</button>
                 </div>
             </form>
         </div>
     </div>
-    <div class="row">
+    <div ng-hide="want_to_enter_text || is_loading" class="row">
         <div class="col-md-12 col-sm-12 mb-5 mt-5">
             <h1 class="text-center mb-5">‌‌‌BB-SVM System</h1>
             <div class="row">
                 <div class="col-md-1 col-sm-12"></div>
                 <div class="col-md-2 col-sm-12">
-                    <img class="img-fluid" src="static/src/img/Agreeableness.png">
-                    <span class="text-center d-block mt-4"><span class="badge badge-info bigger_badge">Agreeableness</span></span>
-                    <span class="text-center d-block mt-3 font-weight-bold"><span class="badge badge-danger my_badge">No</span></span>
-                </div>
-                <div class="col-md-2 col-sm-12">
-                    <img class="img-fluid" src="static/src/img/Conscientiousness.png">
-                    <span class="text-center d-block mt-4"><span class="badge badge-info bigger_badge">Conscientiousness</span></span>
-                    <span class="text-center d-block mt-3 font-weight-bold"><span class="badge badge-success my_badge">Yes</span></span>
-                </div>
-                <div class="col-md-2 col-sm-12">
                     <img class="img-fluid" src="static/src/img/Extraversion.png">
                     <span class="text-center d-block mt-4"><span class="badge badge-info bigger_badge">Extraversion</span></span>
-                    <span class="text-center d-block mt-3 font-weight-bold"><span class="badge badge-danger my_badge">No</span></span>
+                    <span class="text-center d-block mt-3 font-weight-bold"><span ng-class="ocean_data[0] === 'NO' ? 'badge badge-danger my_badge' : 'badge badge-success my_badge'">{{ ocean_data[0] }}</span></span>
                 </div>
                 <div class="col-md-2 col-sm-12">
                     <img class="img-fluid" src="static/src/img/Neuroticism.png">
                     <span class="text-center d-block mt-4"><span class="badge badge-info bigger_badge">Neuroticism</span></span>
-                    <span class="text-center d-block mt-3 font-weight-bold"><span class="badge badge-success my_badge">Yes</span></span>
+                    <span class="text-center d-block mt-3 font-weight-bold"><span ng-class="ocean_data[1] === 'NO' ? 'badge badge-danger my_badge' : 'badge badge-success my_badge'">{{ ocean_data[1] }}</span></span>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                    <img class="img-fluid" src="static/src/img/Agreeableness.png">
+                    <span class="text-center d-block mt-4"><span class="badge badge-info bigger_badge">Agreeableness</span></span>
+                    <span class="text-center d-block mt-3 font-weight-bold"><span ng-class="ocean_data[2] === 'NO' ? 'badge badge-danger my_badge' : 'badge badge-success my_badge'">{{ ocean_data[2] }}</span></span>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                    <img class="img-fluid" src="static/src/img/Conscientiousness.png">
+                    <span class="text-center d-block mt-4"><span class="badge badge-info bigger_badge">Conscientiousness</span></span>
+                    <span class="text-center d-block mt-3 font-weight-bold"><span ng-class="ocean_data[3] === 'NO' ? 'badge badge-danger my_badge' : 'badge badge-success my_badge'">{{ ocean_data[3] }}</span></span>
                 </div>
                 <div class="col-md-2 col-sm-12">
                     <img class="img-fluid" src="static/src/img/openness.png">
                     <span class="text-center d-block mt-4"><span class="badge badge-info bigger_badge">Openness</span></span>
-                    <span class="text-center d-block mt-3 font-weight-bold"><span class="badge badge-success my_badge">Yes</span></span>
+                    <span class="text-center d-block mt-3 font-weight-bold"><span ng-class="ocean_data[4] === 'NO' ? 'badge badge-danger my_badge' : 'badge badge-success my_badge'">{{ ocean_data[4] }}</span></span>
                 </div>
             </div>
         </div>
