@@ -4,18 +4,18 @@ from rest_framework import permissions
 from rest_framework.decorators import permission_classes
 from rest_framework.response import Response
 import json, time
-from .ocean_predictor import main
+from .ocean_predictor import API_predictor
 
 DATA_REQUIRE = "اطلاعات را به شکل کامل وارد کنید."
-
+classifiers = API_predictor.get_classifiers("NM_classifier4y")
+print("Done")
 @permission_classes((permissions.AllowAny,))
 class Predict(APIView):
     def post(self, request):
         rec_data = json.loads(request.read().decode('utf-8'))
         personal_text = rec_data['personal_text']
-        answer = main.predict(personal_text)
+        answer = API_predictor.predict(classifiers, personal_text)
         answer_text = []
-        time.sleep(5)
         for item in answer:
             if item == 0:
                 answer_text.append("NO")
